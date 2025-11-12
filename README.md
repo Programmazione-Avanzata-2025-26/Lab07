@@ -1,4 +1,15 @@
-# Lab 07 - Soluzione
+# Lab 07 - Soluzione (Epoche Ordinate)
+
+> **💡 NOTA:** 
+>  In quasta soluzione viene usata una funzione `_ordina_epoche(lista_epoche)` in `model.py` per ordinare la lista di 
+> epoche, questa funzione definisce una `chiave` (cioè una funzione che trasforma la stringa rappresentante l'epoca 
+> in un intero positivo o negativo ordinabile numericamente).
+> Ad esempio:
+> - II secolo a.C. --> -2
+> - XI secolo a.C. --> -11
+> - X secolo --> 10
+> - XV secolo --> 15
+> - ecc.
 
 #### Argomenti
 
