@@ -36,10 +36,30 @@ class View:
         self.txt_titolo = ft.Text(value="Musei di Torino", size=38, weight=ft.FontWeight.BOLD)
 
         # --- Sezione 2: Filtraggio ---
-        # TODO
+        # Dropdown musei
+        self.dropdown_museo = ft.Dropdown(
+            label="Museo",
+            width=400,
+            options=[ft.dropdown.Option(key="None", text="Nessun Filtro")],
+            on_change=self.controller.on_museo_change  # Callback collegata
+        )
+        self.controller.popola_dropdown_musei()
+
+        # Dropdown epoca
+        self.dropdown_epoca = ft.Dropdown(
+            label="Epoca",
+            width=220,
+            options=[ft.dropdown.Option(key="None", text="Nessun Filtro")],
+            on_change=self.controller.on_epoca_change  # Callback collegata
+        )
+        self.controller.popola_dropdown_epoche()
 
         # Sezione 3: Artefatti
-        # TODO
+        pulsante_mostra_artefatti = ft.ElevatedButton(
+            "Mostra Artefatti",
+            on_click=self.controller.mostra_artefatti
+        )
+        self.lista_artefatti = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
 
         # --- Toggle Tema ---
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
@@ -53,10 +73,25 @@ class View:
             ft.Divider(),
 
             # Sezione 2: Filtraggio
-            # TODO
+            ft.Row(
+                spacing=20,
+                controls=[self.dropdown_museo, self.dropdown_epoca],
+                alignment=ft.MainAxisAlignment.CENTER
+            ),
+            ft.Divider(),
 
             # Sezione 3: Artefatti
-            # TODO
+            ft.Row(
+                spacing=200,
+                controls=[pulsante_mostra_artefatti],
+                alignment=ft.MainAxisAlignment.CENTER
+            ),
+            ft.Container(
+                content=self.lista_artefatti,
+                height=250,
+                border=ft.border.all(1, ft.Colors.BLACK),
+                padding=5,
+            ),
         )
 
         self.page.scroll = "adaptive"
