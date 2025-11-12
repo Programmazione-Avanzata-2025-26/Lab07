@@ -1,4 +1,13 @@
-# Lab 07 - Soluzione
+# Lab 07 - Soluzione (Epoche Ordinate usando la classe `Epoca`)
+
+> **💡 NOTA:** 
+>  In questa soluzione viene definita la classe `Epoca` il cui costruttore richiede una stringa (ad esempio 
+> "II secolo a.C.", "XV secolo", ecc. come lette dal database) che successivamente usa per inizializzarsi i campi 
+> `secolo` e `locuzione`.
+> 
+> All'interno della classe viene definito il metodo `__lt()__` che definisce la relazione di `<`
+> tra due epoche. Tutto questo permette poi, in `model.py`, di ordinare la lista di epoche semplicemente eseguendo
+> un'istruzione di questo tipo: `sorted(lista_epoche)`
 
 #### Argomenti
 

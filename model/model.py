@@ -20,7 +20,7 @@ class Model:
 
     def get_epoche(self):
         """Restituisce la lista di tutte le epoche."""
-        return self._artefatto_dao.get_epoche() # non ordinate
+        return sorted(self._artefatto_dao.get_epoche()) # ordinate mediante la definizione del metodo __lt__() nella classe "Epoca"
 
     # --- MUSEI ---
     def get_musei(self):

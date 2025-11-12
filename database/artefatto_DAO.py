@@ -1,5 +1,6 @@
 from database.DB_connect import ConnessioneDB
 from model.artefattoDTO import Artefatto
+from model.epoca import Epoca
 
 """
     ARTEFATTO DAO
@@ -70,7 +71,7 @@ class ArtefattoDAO:
         try:
             cursor.execute(query)
             for row in cursor:
-                result.append(row["epoca"])
+                result.append(Epoca(epoca=row["epoca"]))
 
         except Exception as e:
             print(f"Errore durante la query get_epoche: {e}")
